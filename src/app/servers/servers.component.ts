@@ -12,6 +12,7 @@ export class ServersComponent implements OnInit {
   allowNewServer = false;
   serverCreationStatus = 'No Server was created!';
   serverName = '';
+  userName = '';
 
   constructor() {
     //This will set allowNewServer to true after 2000ms
