@@ -13,6 +13,7 @@ export class ServersComponent implements OnInit {
   serverCreationStatus = 'No Server was created!';
   serverName = '';
   userName = '';
+  serverCreated = false;
 
   constructor() {
     //This will set allowNewServer to true after 2000ms
@@ -24,6 +25,7 @@ export class ServersComponent implements OnInit {
   ngOnInit(): void {}
 
   onCreateServer() {
+    this.serverCreated = true;
     this.serverCreationStatus =
       'Server was Created! Name is ' + this.serverName;
   }
