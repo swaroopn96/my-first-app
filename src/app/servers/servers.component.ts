@@ -15,6 +15,8 @@ export class ServersComponent implements OnInit {
   userName = '';
   serverCreated = false;
   servers = ['Testserver', 'Testserver 2'];
+  showContent = false;
+  log = [];
 
   constructor() {
     //This will set allowNewServer to true after 2000ms
@@ -36,5 +38,10 @@ export class ServersComponent implements OnInit {
   onUpdateServerName(event: Event) {
     //console.log(event);
     this.serverName = (<HTMLInputElement>event.target).value;
+  }
+
+  onToggleDetails() {
+    this.showContent = !this.showContent;
+    this.log.push(this.log.length + 1);
   }
 }

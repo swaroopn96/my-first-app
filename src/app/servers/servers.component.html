@@ -32,5 +32,21 @@
 <ng-template #noServer>
   <p>No Server was created</p>
 </ng-template>
+<hr />
+<!-- <button class="btn btn-primary" (click)="showContent = !showContent">
+  Display Details
+</button> -->
+<button class="btn btn-primary" (click)="onToggleDetails()">
+  Display Details
+</button>
+<p *ngIf="showContent">Secret password = tuna</p>
+<div
+  *ngFor="let logItem of log"
+  [ngStyle]="{ backgroundColor: logItem >= 5 ? 'blue' : 'white' }"
+  [ngClass]="{ 'white-text': logItem >= 5 }"
+>
+  {{ logItem }}
+</div>
+<hr />
 <app-server *ngFor="let server of servers"></app-server>
 <!-- <app-server></app-server> -->
