@@ -14,6 +14,7 @@ export class ServersComponent implements OnInit {
   serverName = '';
   userName = '';
   serverCreated = false;
+  servers = ['Testserver', 'Testserver 2'];
 
   constructor() {
     //This will set allowNewServer to true after 2000ms
@@ -28,6 +29,7 @@ export class ServersComponent implements OnInit {
     this.serverCreated = true;
     this.serverCreationStatus =
       'Server was Created! Name is ' + this.serverName;
+    this.servers.push(this.serverName);
   }
 
   //event is of type Event
