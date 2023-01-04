@@ -25,15 +25,36 @@
 <app-servers></app-servers> -->
 
 <!-- Adding css -->
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-xs-12"></div>
     <h3>I am in the App Component</h3>
     <hr />
-    <app-servers></app-servers>
-    <!-- <div app-servers></div> -->
-    <!-- <div class="app-servers"></div> -->
-    <!-- <app-warning-alert></app-warning-alert>
+    <app-servers></app-servers> -->
+<!-- <div app-servers></div> -->
+<!-- <div class="app-servers"></div> -->
+<!-- <app-warning-alert></app-warning-alert>
     <app-success-alert></app-success-alert> -->
+<!-- </div>
+</div> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>My Servers</h2>
+      <button class="btn btn-primary" (click)="onAddServer()">
+        Add Server
+      </button>
+      <br /><br />
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let server of servers; let i = index"
+          (click)="onRemoveServer(i)"
+        >
+          {{ server }}
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
