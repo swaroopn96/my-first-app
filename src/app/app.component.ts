@@ -15,14 +15,15 @@ import { Component } from '@angular/core';
 export class AppComponent {
   // title = 'my-app';
   // name = 'Swaroop';
-  servers;
+  servers = [];
 
   onAddServer() {
     this.servers.push('Another Server');
   }
 
   onRemoveServer(id: number) {
-    const position = id + 1;
+    // const position = id + 1;
+    const position = id;
     // splice Removes element from the given position
     this.servers.splice(position, 1);
   }
