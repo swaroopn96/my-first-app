@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+  preserveWhitespaces: true,
   //   styles: [
   //     `
   //       h3 {
@@ -15,16 +16,36 @@ import { Component } from '@angular/core';
 export class AppComponent {
   // title = 'my-app';
   // name = 'Swaroop';
-  servers = [];
+  // servers = [];
+
+  // onAddServer() {
+  //   this.servers.push('Another Server');
+  // }
+
+  // onRemoveServer(id: number) {
+  //   // const position = id + 1;
+  //   const position = id;
+  //   // splice Removes element from the given position
+  //   this.servers.splice(position, 1);
+  // }
+
+  serverElements = [];
+  newServerName = '';
+  newServerContent = '';
 
   onAddServer() {
-    this.servers.push('Another Server');
+    this.serverElements.push({
+      type: 'server',
+      name: this.newServerName,
+      content: this.newServerContent,
+    });
   }
 
-  onRemoveServer(id: number) {
-    // const position = id + 1;
-    const position = id;
-    // splice Removes element from the given position
-    this.servers.splice(position, 1);
+  onAddBlueprint() {
+    this.serverElements.push({
+      type: 'blueprint',
+      name: this.newServerName,
+      content: this.newServerContent,
+    });
   }
 }
