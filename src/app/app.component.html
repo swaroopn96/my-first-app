@@ -79,7 +79,7 @@
         [name]="serverElement.name"
       >
         <!-- Whatever content added here between these opening and closing tag will be placed where ng content tag is used-->
-        <p>
+        <p #contentParagraph>
           <strong *ngIf="serverElement.type === 'server'" style="color: red">{{
             serverElement.content
           }}</strong>

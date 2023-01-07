@@ -1,3 +1,4 @@
+import { Content } from '@angular/compiler/src/render3/r3_ast';
 import {
   Component,
   Input,
@@ -11,6 +12,9 @@ import {
   AfterViewInit,
   AfterViewChecked,
   OnDestroy,
+  ViewChild,
+  ElementRef,
+  ContentChild,
 } from '@angular/core';
 
 @Component({
@@ -36,6 +40,8 @@ export class ServerElementComponent
   //srvElement is the alias name to bind property
   @Input('srvElement') element: { type: string; name: string; content: string };
   @Input() name: string;
+  @ViewChild('heading', { static: true }) header: ElementRef;
+  @ContentChild('contentParagraph', { static: true }) paragraph: ElementRef;
   constructor() {
     console.log('Constructor called!');
   }
@@ -47,6 +53,10 @@ export class ServerElementComponent
 
   ngOnInit(): void {
     console.log('ngOnInit Called!');
+    console.log('TextContent:' + this.header.nativeElement.textContent);
+    console.log(
+      'TextContent of paragraph:' + this.paragraph.nativeElement.textContent
+    );
   }
 
   //Since we are in development mode its called twice since angular has extra detection cycle
@@ -56,6 +66,9 @@ export class ServerElementComponent
 
   ngAfterContentInit() {
     console.log('ngAfterContentInit called!');
+    console.log(
+      'TextContent of paragraph:' + this.paragraph.nativeElement.textContent
+    );
   }
 
   ngAfterContentChecked() {
@@ -63,6 +76,7 @@ export class ServerElementComponent
   }
   ngAfterViewInit(): void {
     console.log('ngAfterViewInit called!');
+    console.log('TextContent:' + this.header.nativeElement.textContent);
   }
 
   ngAfterViewChecked(): void {
