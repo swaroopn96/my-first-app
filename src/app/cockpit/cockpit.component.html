@@ -6,12 +6,13 @@
     <!-- using local reference  serverNameInput instead of 2 way binding-->
     <input type="text" class="form-control" #serverNameInput />
     <label>Server Content</label>
-    <input type="text" class="form-control" [(ngModel)]="newServerContent" />
+    <!-- <input type="text" class="form-control" [(ngModel)]="newServerContent" /> -->
+    <input type="text" class="form-control" #serverContentInput />
     <br />
     <button class="btn btn-primary" (click)="onAddServer(serverNameInput)">
       Add Server
     </button>
-    <button class="btn btn-primary" (click)="onAddBlueprint()">
+    <button class="btn btn-primary" (click)="onAddBlueprint(serverNameInput)">
       Add Server Blueprint
     </button>
   </div>
