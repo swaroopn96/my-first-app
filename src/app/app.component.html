@@ -59,7 +59,7 @@
   </div>
 </div> -->
 
-<div class="container">
+<!-- <div class="container">
   <app-cockpit
     (serverCreated)="onServerAdded($event)"
     (bpCreated)="onBlueprintAdded($event)"
@@ -77,9 +77,9 @@
         *ngFor="let serverElement of serverElements"
         [srvElement]="serverElement"
         [name]="serverElement.name"
-      >
-        <!-- Whatever content added here between these opening and closing tag will be placed where ng content tag is used-->
-        <p #contentParagraph>
+      > -->
+<!-- Whatever content added here between these opening and closing tag will be placed where ng content tag is used-->
+<!-- <p #contentParagraph>
           <strong *ngIf="serverElement.type === 'server'" style="color: red">{{
             serverElement.content
           }}</strong>
@@ -88,6 +88,25 @@
           }}</em>
         </p>
       </app-server-element>
+    </div>
+  </div>
+</div> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <app-game-control
+        (gameStarted)="onGameStarted($event)"
+      ></app-game-control>
+      <br />
+      <app-odd
+        *ngFor="let oddNumber of oddNumbers"
+        [number]="oddNumber"
+      ></app-odd>
+      <app-even
+        *ngFor="let evenNumber of evenNumbers"
+        [number]="evenNumber"
+      ></app-even>
     </div>
   </div>
 </div>
