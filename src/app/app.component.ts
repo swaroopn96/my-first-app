@@ -53,11 +53,18 @@ export class AppComponent {
   //   this.serverElements.splice(0, 1);
   // }
 
-  oddNumbers: number[] = [];
-  evenNumbers: number[] = [];
+  //------------------------------------------------------------------
 
-  onGameStarted(lastNumber: number) {
-    if (lastNumber % 2 === 0) this.evenNumbers.push(lastNumber);
-    else this.oddNumbers.push(lastNumber);
-  }
+  // oddNumbers: number[] = [];
+  // evenNumbers: number[] = [];
+
+  // onGameStarted(lastNumber: number) {
+  //   if (lastNumber % 2 === 0) this.evenNumbers.push(lastNumber);
+  //   else this.oddNumbers.push(lastNumber);
+  // }
+
+  numbers = [1, 2, 3, 4, 5];
+  oddNumbers = [1, 3, 5];
+  evenNumbers = [2, 4];
+  onlyOdd = false;
 }
