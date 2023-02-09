@@ -145,7 +145,10 @@
         </div>
       </ul>
       <p appBasicHighLight>Style me with basic directive!</p>
-      <p appBetterHighlight>Style me with better directive!</p>
+      <!-- here two ways of assigning colors -->
+      <p appBetterHighlight [defaultColor]="'yellow'" highLightColor="red">
+        Style me with better directive!
+      </p>
     </div>
   </div>
 </div>
