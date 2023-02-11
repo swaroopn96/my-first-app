@@ -110,8 +110,8 @@
     </div>
   </div>
 </div> -->
-
-<div class="container">
+<!-- ---------------------------------------------------------------- -->
+<!-- <div class="container">
   <div class="row">
     <div class="col-xs-12">
       <button class="btn btn-primary" (click)="onlyOdd = !onlyOdd">
@@ -130,8 +130,9 @@
           >
             {{ odd }}
           </li>
-        </div>
-        <!-- <div *ngIf="!onlyOdd">
+        </div> -->
+
+<!-- <div *ngIf="!onlyOdd">
           <li
             class="list-group-item"
             [ngClass]="{ odd: even % 2 !== 0 }"
@@ -143,8 +144,8 @@
             {{ even }}
           </li>
         </div> -->
-        <!-- *ngIf transforms to below template behind the scenes -->
-        <!-- <ng-template [ngIf]="!onlyOdd">
+<!-- *ngIf transforms to below template behind the scenes -->
+<!-- <ng-template [ngIf]="!onlyOdd">
           <li
             class="list-group-item"
             [ngClass]="{ odd: even % 2 !== 0 }"
@@ -157,8 +158,8 @@
           </li>
         </ng-template> -->
 
-        <!-- Same name of Directive should be used -->
-        <div *appUnless="onlyOdd">
+<!-- Same name of Directive should be used -->
+<!-- <div *appUnless="onlyOdd">
           <li
             class="list-group-item"
             [ngClass]="{ odd: even % 2 !== 0 }"
@@ -171,9 +172,9 @@
           </li>
         </div>
       </ul>
-      <p appBasicHighLight>Style me with basic directive!</p>
-      <!-- here two ways of assigning colors -->
-      <p appBetterHighlight [defaultColor]="'yellow'" highLightColor="red">
+      <p appBasicHighLight>Style me with basic directive!</p> -->
+<!-- here two ways of assigning colors -->
+<!-- <p appBetterHighlight [defaultColor]="'yellow'" highLightColor="red">
         Style me with better directive!
       </p>
       <div [ngSwitch]="value">
@@ -182,6 +183,25 @@
         <p *ngSwitchCase="200">value is 200</p>
         <p *ngSwitchDefault="5">value is Default</p>
       </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- ----------------------------------------------------------------- -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <app-new-account
+        (accountAdded)="onAccountAdded($event)"
+      ></app-new-account>
+      <hr />
+      <app-account
+        *ngFor="let acc of accounts; let i = index"
+        [account]="acc"
+        [id]="i"
+        (statusChanged)="onStatusChanged($event)"
+      ></app-account>
     </div>
   </div>
 </div>
