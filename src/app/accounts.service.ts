@@ -3,7 +3,8 @@ import { LoggingService } from './logging.service';
 
 //Added injectable to inject the other service
 //Also we add this where we want to inject service
-@Injectable()
+//@Injectable()
+@Injectable({ providedIn: 'root' })
 export class AccountsService {
   accounts = [
     {
