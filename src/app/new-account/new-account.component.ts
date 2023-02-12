@@ -16,7 +16,12 @@ export class NewAccountComponent implements OnInit {
   constructor(
     private loggingService: LoggingService,
     private accountsService: AccountsService
-  ) {}
+  ) {
+    //Here we are listening to event
+    this.accountsService.statusUpdated.subscribe((status: string) =>
+      alert('New Status: ' + status)
+    );
+  }
 
   onCreateAccount(accountName: string, accountStatus: string) {
     // this.accountAdded.emit({
