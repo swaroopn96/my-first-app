@@ -7,7 +7,7 @@ import { LoggingService } from '../logging.service';
   templateUrl: './new-account.component.html',
   styleUrls: ['./new-account.component.css'],
   // It says angular to provide LoggingService
-  providers: [LoggingService, AccountsService],
+  providers: [LoggingService],
 })
 export class NewAccountComponent implements OnInit {
   @Output() accountAdded = new EventEmitter<{ name: string; status: string }>();
