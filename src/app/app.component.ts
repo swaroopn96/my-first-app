@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AccountsService } from './accounts.service';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,9 @@ import { Component } from '@angular/core';
   //       }
   //     `,
   //   ],
+  providers: [AccountsService],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   // title = 'my-app';
   // name = 'Swaroop';
   // servers = [];
@@ -70,26 +72,36 @@ export class AppComponent {
   // value = 5;
 
   //------------------------------------------------------------------
-  accounts = [
-    {
-      name: 'Master Account',
-      status: 'active',
-    },
-    {
-      name: 'Testaccount',
-      status: 'inactive',
-    },
-    {
-      name: 'Hidden Account',
-      status: 'unknown',
-    },
-  ];
+  // accounts = [
+  //   {
+  //     name: 'Master Account',
+  //     status: 'active',
+  //   },
+  //   {
+  //     name: 'Testaccount',
+  //     status: 'inactive',
+  //   },
+  //   {
+  //     name: 'Hidden Account',
+  //     status: 'unknown',
+  //   },
+  // ];
 
-  onAccountAdded(newAccount: { name: string; status: string }) {
-    this.accounts.push(newAccount);
-  }
+  // onAccountAdded(newAccount: { name: string; status: string }) {
+  //   this.accounts.push(newAccount);
+  // }
 
-  onStatusChanged(updateInfo: { id: number; newStatus: string }) {
-    this.accounts[updateInfo.id].status = updateInfo.newStatus;
+  // onStatusChanged(updateInfo: { id: number; newStatus: string }) {
+  //   this.accounts[updateInfo.id].status = updateInfo.newStatus;
+  // }
+
+  //-------------------------------------------------------------------
+
+  accounts: { name: string; status: string }[] = [];
+
+  constructor(private accountsService: AccountsService) {}
+
+  ngOnInit(): void {
+    this.accounts = this.accountsService.accounts;
   }
 }
