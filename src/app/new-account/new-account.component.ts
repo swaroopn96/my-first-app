@@ -7,7 +7,7 @@ import { LoggingService } from '../logging.service';
   templateUrl: './new-account.component.html',
   styleUrls: ['./new-account.component.css'],
   // It says angular to provide LoggingService
-  providers: [LoggingService],
+  //providers: [LoggingService],
 })
 export class NewAccountComponent implements OnInit {
   @Output() accountAdded = new EventEmitter<{ name: string; status: string }>();
@@ -31,7 +31,7 @@ export class NewAccountComponent implements OnInit {
 
     this.accountsService.addAccount(accountName, accountStatus);
 
-    this.loggingService.logStatusChange(accountStatus);
+    //this.loggingService.logStatusChange(accountStatus);
   }
 
   ngOnInit(): void {}

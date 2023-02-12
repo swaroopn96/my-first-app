@@ -6,7 +6,7 @@ import { LoggingService } from '../logging.service';
   selector: 'app-account',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.css'],
-  providers: [LoggingService],
+  //providers: [LoggingService],
   preserveWhitespaces: true,
 })
 export class AccountComponent implements OnInit {
@@ -26,7 +26,7 @@ export class AccountComponent implements OnInit {
     //this.statusChanged.emit({ id: this.id, newStatus: status });
     //console.log('A server status changed, new status: ' + status);
     this.accountsService.updateStatus(this.id, status);
-    this.loggingService.logStatusChange(status);
+    //this.loggingService.logStatusChange(status);
   }
 
   ngOnInit(): void {}

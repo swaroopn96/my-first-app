@@ -13,7 +13,7 @@ import { AccountsService } from './accounts.service';
   //       }
   //     `,
   //   ],
-  providers: [AccountsService],
+  //providers: [AccountsService],
 })
 export class AppComponent implements OnInit {
   // title = 'my-app';
