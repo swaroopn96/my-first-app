@@ -17,6 +17,8 @@ import { BetterHighlightDirective } from './better-highlight/better-highlight.di
 import { UnlessDirective } from './unless.directive';
 import { AccountComponent } from './account/account.component';
 import { NewAccountComponent } from './new-account/new-account.component';
+import { ActiveUsersComponent } from './active-users/active-users.component';
+import { InactiveUsersComponent } from './inactive-users/inactive-users.component';
 //import { AccountsService } from './accounts.service';
 //import { LoggingService } from './logging.service';
 
@@ -37,6 +39,8 @@ import { NewAccountComponent } from './new-account/new-account.component';
     UnlessDirective,
     AccountComponent,
     NewAccountComponent,
+    ActiveUsersComponent,
+    InactiveUsersComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],

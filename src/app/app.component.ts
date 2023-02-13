@@ -15,7 +15,7 @@ import { AccountsService } from './accounts.service';
   //   ],
   //providers: [AccountsService],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   // title = 'my-app';
   // name = 'Swaroop';
   // servers = [];
@@ -54,23 +54,18 @@ export class AppComponent implements OnInit {
   // onDestroyFirst() {
   //   this.serverElements.splice(0, 1);
   // }
-
   //------------------------------------------------------------------
-
   // oddNumbers: number[] = [];
   // evenNumbers: number[] = [];
-
   // onGameStarted(lastNumber: number) {
   //   if (lastNumber % 2 === 0) this.evenNumbers.push(lastNumber);
   //   else this.oddNumbers.push(lastNumber);
   // }
-
   // numbers = [1, 2, 3, 4, 5];
   // oddNumbers = [1, 3, 5];
   // evenNumbers = [2, 4];
   // onlyOdd = false;
   // value = 5;
-
   //------------------------------------------------------------------
   // accounts = [
   //   {
@@ -86,22 +81,30 @@ export class AppComponent implements OnInit {
   //     status: 'unknown',
   //   },
   // ];
-
   // onAccountAdded(newAccount: { name: string; status: string }) {
   //   this.accounts.push(newAccount);
   // }
-
   // onStatusChanged(updateInfo: { id: number; newStatus: string }) {
   //   this.accounts[updateInfo.id].status = updateInfo.newStatus;
   // }
-
   //-------------------------------------------------------------------
+  // accounts: { name: string; status: string }[] = [];
+  // constructor(private accountsService: AccountsService) {}
+  // ngOnInit(): void {
+  //   this.accounts = this.accountsService.accounts;
+  // }
+  //----------------------------------------------------------------------
 
-  accounts: { name: string; status: string }[] = [];
+  activeUsers = ['Ram', 'Ajay'];
+  inactiveUsers = ['Ravi', 'Guru'];
 
-  constructor(private accountsService: AccountsService) {}
+  onSetToInactive(id: number) {
+    this.inactiveUsers.push(this.activeUsers[id]);
+    this.activeUsers.splice(id, 1);
+  }
 
-  ngOnInit(): void {
-    this.accounts = this.accountsService.accounts;
+  onSetToActive(id: number) {
+    this.activeUsers.push(this.inactiveUsers[id]);
+    this.inactiveUsers.splice(id, 1);
   }
 }
