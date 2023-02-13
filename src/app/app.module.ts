@@ -19,6 +19,7 @@ import { AccountComponent } from './account/account.component';
 import { NewAccountComponent } from './new-account/new-account.component';
 import { ActiveUsersComponent } from './active-users/active-users.component';
 import { InactiveUsersComponent } from './inactive-users/inactive-users.component';
+import { CounterService } from './counter.service';
 //import { AccountsService } from './accounts.service';
 //import { LoggingService } from './logging.service';
 
@@ -43,7 +44,7 @@ import { InactiveUsersComponent } from './inactive-users/inactive-users.componen
     InactiveUsersComponent,
   ],
   imports: [BrowserModule, FormsModule],
-  providers: [],
+  providers: [CounterService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

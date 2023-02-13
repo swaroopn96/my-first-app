@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AccountsService } from './accounts.service';
+//import { AccountsService } from './accounts.service';
+//import { CounterService } from './counter.service';
+import { UserService } from './users.service';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +16,7 @@ import { AccountsService } from './accounts.service';
   //     `,
   //   ],
   //providers: [AccountsService],
+  providers: [UserService],
 })
 export class AppComponent {
   // title = 'my-app';
@@ -94,17 +97,21 @@ export class AppComponent {
   //   this.accounts = this.accountsService.accounts;
   // }
   //----------------------------------------------------------------------
-
-  activeUsers = ['Ram', 'Ajay'];
-  inactiveUsers = ['Ravi', 'Guru'];
-
-  onSetToInactive(id: number) {
-    this.inactiveUsers.push(this.activeUsers[id]);
-    this.activeUsers.splice(id, 1);
-  }
-
-  onSetToActive(id: number) {
-    this.activeUsers.push(this.inactiveUsers[id]);
-    this.inactiveUsers.splice(id, 1);
-  }
+  // activeUsers = ['Ram', 'Ajay'];
+  // inactiveUsers = ['Ravi', 'Guru'];
+  // onSetToInactive(id: number) {
+  //   this.inactiveUsers.push(this.activeUsers[id]);
+  //   this.activeUsers.splice(id, 1);
+  // }
+  // onSetToActive(id: number) {
+  //   this.activeUsers.push(this.inactiveUsers[id]);
+  //   this.inactiveUsers.splice(id, 1);
+  // }
+  //constructor(private userService: UserService) {}
+  // onSetToInactive(id: number) {
+  //   this.userService.setToInactive(id);
+  // }
+  // onSetToActive(id: number) {
+  //   this.userService.setToActive(id);
+  // }
 }
