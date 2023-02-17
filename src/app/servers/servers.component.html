@@ -1,18 +1,18 @@
 <!-- <p>servers works!</p> -->
-<label>Server Name</label>
+<!-- <label>Server Name</label> -->
 <!-- <input type="text" class="form-control" (input)="onUpdateServerName($event)" /> -->
-<br />
+<!-- <br /> -->
 <!-- <label>Server Name with Two way binding</label> -->
-<input type="text" class="form-control" [(ngModel)]="serverName" />
-<br />
+<!-- <input type="text" class="form-control" [(ngModel)]="serverName" />
+<br /> -->
 <!-- <p>{{ serverName }}</p> -->
-<button
+<!-- <button
   class="btn btn-primary"
   [disabled]="!allowNewServer"
   (click)="onCreateServer()"
 >
   Add Server
-</button>
+</button> -->
 <!-- <p [innerText]="allowNewServer"></p> -->
 <!-- <p>{{ serverCreationStatus }}</p> -->
 <!-- <label>User Name</label>
@@ -26,20 +26,20 @@
 >
   Reset
 </button> -->
-<p *ngIf="serverCreated; else noServer">
+<!-- <p *ngIf="serverCreated; else noServer">
   Sever was created, server name is {{ serverName }}
 </p>
 <ng-template #noServer>
   <p>No Server was created</p>
 </ng-template>
-<hr />
+<hr /> -->
 <!-- <button class="btn btn-primary" (click)="showContent = !showContent">
   Display Details
 </button> -->
-<button class="btn btn-primary" (click)="onToggleDetails()">
+<!-- <button class="btn btn-primary" (click)="onToggleDetails()">
   Display Details
 </button>
-<p *ngIf="showContent">Secret password = tuna</p>
+<p *ngIf="showContent">Secret password = tuna</p> -->
 <!-- <div
   *ngFor="let logItem of log"
   [ngStyle]="{ backgroundColor: logItem >= 5 ? 'blue' : 'white' }"
@@ -47,7 +47,7 @@
 >
   {{ logItem }}
 </div> -->
-<div
+<!-- <div
   *ngFor="let logItem of log; let i = index"
   [ngStyle]="{ backgroundColor: i >= 4 ? 'blue' : 'white' }"
   [ngClass]="{ 'white-text': i >= 4 }"
@@ -55,5 +55,22 @@
   {{ logItem }}
 </div>
 <hr />
-<app-server *ngFor="let server of servers"></app-server>
+<app-server *ngFor="let server of servers"></app-server> -->
 <!-- <app-server></app-server> -->
+
+<!-- ------------------------------------------------------------------ -->
+
+<div class="row">
+  <div class="col-xs-12 col-sm-4">
+    <div class="list-group">
+      <a href="#" class="list-group-item" *ngFor="let server of servers">
+        {{ server.name }}
+      </a>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-4">
+    <app-edit-server></app-edit-server>
+    <hr />
+    <app-server-new></app-server-new>
+  </div>
+</div>

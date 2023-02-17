@@ -22,6 +22,12 @@ import { InactiveUsersComponent } from './inactive-users/inactive-users.componen
 import { CounterService } from './counter.service';
 //import { AccountsService } from './accounts.service';
 //import { LoggingService } from './logging.service';
+import { HomeComponent } from './home/home.component';
+import { UsersComponent } from './users/users.component';
+import { UserComponent } from './users/user/user.component';
+import { EditServerComponent } from './servers/edit-server/edit-server.component';
+import { ServerComponents } from './servers/server/server.component';
+import { ServersService } from './servers/servers.service';
 
 @NgModule({
   declarations: [
@@ -42,9 +48,14 @@ import { CounterService } from './counter.service';
     NewAccountComponent,
     ActiveUsersComponent,
     InactiveUsersComponent,
+    HomeComponent,
+    UsersComponent,
+    UserComponent,
+    EditServerComponent,
+    ServerComponents,
   ],
   imports: [BrowserModule, FormsModule],
-  providers: [CounterService],
+  providers: [CounterService, ServersService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
