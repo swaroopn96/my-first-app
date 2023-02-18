@@ -36,7 +36,7 @@ const appRoutes: Routes = [
   //: is used because anything after / will direct to usercomponent
   //and if we just give id without : it will direct only when id is mentioned in path
   //and not any other thing
-  { path: 'users/:id', component: UserComponent },
+  { path: 'users/:id/:name', component: UserComponent },
   { path: '', component: HomeComponent },
   { path: 'servers', component: ServersComponent },
 ];
