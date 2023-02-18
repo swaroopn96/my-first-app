@@ -31,34 +31,36 @@ import { ServersService } from './servers/servers.service';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth-guard.service';
 
 //Declaring routes here and it says when users path is reached it should load userscomponent
-const appRoutes: Routes = [
-  //here pathMath used otherwise angular throws error because all route start with empty and redirects
-  // { path: '', redirectTo: '/home', pathMatch: 'full' },
-  // { path: 'home', component: HomeComponent },
-  {
-    path: 'users',
-    component: UsersComponent,
-    children: [{ path: ':id/:name', component: UserComponent }],
-  },
-  //: is used because anything after / will direct to usercomponent
-  //and if we just give id without : it will direct only when id is mentioned in path
-  //and not any other thing
-  //{ path: 'users/:id/:name', component: UserComponent },
-  { path: '', component: HomeComponent },
-  {
-    path: 'servers',
-    component: ServersComponent,
-    children: [
-      { path: ':id/edit', component: EditServerComponent },
-      { path: ':id', component: ServerComponents },
-    ],
-  },
-  { path: 'not-found', component: PageNotFoundComponent },
-  // ** means all the path that are not available and it should be placed at end otherwise it redirects always to not found
-  { path: '**', redirectTo: '/not-found' },
-];
+// const appRoutes: Routes = [
+//   //here pathMath used otherwise angular throws error because all route start with empty and redirects
+//   // { path: '', redirectTo: '/home', pathMatch: 'full' },
+//   // { path: 'home', component: HomeComponent },
+//   {
+//     path: 'users',
+//     component: UsersComponent,
+//     children: [{ path: ':id/:name', component: UserComponent }],
+//   },
+//   //: is used because anything after / will direct to usercomponent
+//   //and if we just give id without : it will direct only when id is mentioned in path
+//   //and not any other thing
+//   //{ path: 'users/:id/:name', component: UserComponent },
+//   { path: '', component: HomeComponent },
+//   {
+//     path: 'servers',
+//     component: ServersComponent,
+//     children: [
+//       { path: ':id/edit', component: EditServerComponent },
+//       { path: ':id', component: ServerComponents },
+//     ],
+//   },
+//   { path: 'not-found', component: PageNotFoundComponent },
+//   // ** means all the path that are not available and it should be placed at end otherwise it redirects always to not found
+//   { path: '**', redirectTo: '/not-found' },
+// ];
 
 @NgModule({
   declarations: [
@@ -93,7 +95,7 @@ const appRoutes: Routes = [
     //RouterModule.forRoot(appRoutes),
     AppRoutingModule,
   ],
-  providers: [CounterService, ServersService],
+  providers: [CounterService, ServersService, AuthService, AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
