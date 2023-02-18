@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ServersService } from './servers.service';
 
 @Component({
@@ -49,9 +50,23 @@ export class ServersComponent implements OnInit {
 
   public servers: { id: number; name: string; status: string }[] = [];
 
-  constructor(private serversService: ServersService) {}
+  constructor(
+    private serversService: ServersService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.servers = this.serversService.getServers();
+  }
+
+  onReload() {
+    //using obsolute path
+    //this.router.navigate(['/servers']);
+    //using relative path
+    //here its working expected because navigate does not know in which path currently in hence it navigates properly unlike routerLink
+    //this.router.navigate(['servers']);
+    //Here we are telling angular to navigate from the relative route hence app breaks
+    //this.router.navigate(['servers'], { relativeTo: this.route });
   }
 }
