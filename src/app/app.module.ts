@@ -30,6 +30,7 @@ import { ServerComponents } from './servers/server/server.component';
 import { ServersService } from './servers/servers.service';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AppRoutingModule } from './app-routing.module';
 
 //Declaring routes here and it says when users path is reached it should load userscomponent
 const appRoutes: Routes = [
@@ -89,7 +90,8 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     //Registers Routes for our application
-    RouterModule.forRoot(appRoutes),
+    //RouterModule.forRoot(appRoutes),
+    AppRoutingModule,
   ],
   providers: [CounterService, ServersService],
   bootstrap: [AppComponent],
