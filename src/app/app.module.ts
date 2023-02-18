@@ -32,15 +32,24 @@ import { RouterModule, Routes } from '@angular/router';
 
 //Declaring routes here and it says when users path is reached it should load userscomponent
 const appRoutes: Routes = [
-  { path: 'users', component: UsersComponent },
+  {
+    path: 'users',
+    component: UsersComponent,
+    children: [{ path: ':id/:name', component: UserComponent }],
+  },
   //: is used because anything after / will direct to usercomponent
   //and if we just give id without : it will direct only when id is mentioned in path
   //and not any other thing
-  { path: 'users/:id/:name', component: UserComponent },
+  //{ path: 'users/:id/:name', component: UserComponent },
   { path: '', component: HomeComponent },
-  { path: 'servers', component: ServersComponent },
-  { path: 'servers/:id/edit', component: EditServerComponent },
-  { path: 'servers/:id', component: ServerComponents },
+  {
+    path: 'servers',
+    component: ServersComponent,
+    children: [
+      { path: ':id/edit', component: EditServerComponent },
+      { path: ':id', component: ServerComponents },
+    ],
+  },
 ];
 
 @NgModule({
