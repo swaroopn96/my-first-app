@@ -28,6 +28,14 @@ import { UserComponent } from './users/user/user.component';
 import { EditServerComponent } from './servers/edit-server/edit-server.component';
 import { ServerComponents } from './servers/server/server.component';
 import { ServersService } from './servers/servers.service';
+import { RouterModule, Routes } from '@angular/router';
+
+//Declaring routes here and it says when users path is reached it should load userscomponent
+const appRoutes: Routes = [
+  { path: 'users', component: UsersComponent },
+  { path: '', component: HomeComponent },
+  { path: 'servers', component: ServersComponent },
+];
 
 @NgModule({
   declarations: [
@@ -54,7 +62,12 @@ import { ServersService } from './servers/servers.service';
     EditServerComponent,
     ServerComponents,
   ],
-  imports: [BrowserModule, FormsModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    //Registers Routes for our application
+    RouterModule.forRoot(appRoutes),
+  ],
   providers: [CounterService, ServersService],
   bootstrap: [AppComponent],
 })
