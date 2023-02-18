@@ -1,2 +1,6 @@
 <p>User with ID {{ user.id }} loaded.</p>
 <p>User name is {{ user.name }}</p>
+<hr />
+
+<!-- This does not work if we are already on that component because angular does not reload if we are already there -->
+<a [routerLink]="['/users', 10, 'Umesh']">Load Umesh</a>
