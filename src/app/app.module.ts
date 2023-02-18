@@ -40,6 +40,7 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'servers', component: ServersComponent },
   { path: 'servers/:id/edit', component: EditServerComponent },
+  { path: 'servers/:id', component: ServerComponents },
 ];
 
 @NgModule({
