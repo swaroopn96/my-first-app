@@ -224,9 +224,24 @@ Also add a counterService which counts the number of active->inactive and inacti
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <ul class="nav nav-tabs">
         <!-- here /path is the absolute path which appends to main url -->
-        <li role="presentation" class="active"><a routerLink="/">Home</a></li>
-        <li role="presentation"><a routerLink="/servers">Servers</a></li>
-        <li role="presentation"><a [routerLink]="['/users']">Users</a></li>
+        <!-- Always Home Menu shows as selected since all other paths also contain home path -->
+        <!-- <li role="presentation" routerLinkActive="active">
+          <a routerLink="/">Home</a>
+        </li> -->
+        <!-- exact true will make menu active only when exact path is found and not for different paths -->
+        <li
+          role="presentation"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a routerLink="/">Home</a>
+        </li>
+        <li role="presentation" routerLinkActive="active">
+          <a routerLink="/servers">Servers</a>
+        </li>
+        <li role="presentation" routerLinkActive="active">
+          <a [routerLink]="['/users']">Users</a>
+        </li>
 
         <!-- Adding href will work but to navigate but it reloads the page which is not correct-->
         <!-- <li role="presentation" class="active"><a href="/">Home</a></li>
