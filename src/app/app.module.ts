@@ -35,6 +35,7 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './auth-guard.service';
 import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { ServerResolver } from './servers/server/server-resolver.service';
 
 //Declaring routes here and it says when users path is reached it should load userscomponent
 // const appRoutes: Routes = [
@@ -104,6 +105,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     AuthService,
     AuthGuard,
     CanDeactivateGuard,
+    ServerResolver,
   ],
   bootstrap: [AppComponent],
 })

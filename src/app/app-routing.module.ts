@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard.service';
 import { EditServerComponent } from './servers/edit-server/edit-server.component';
+import { ServerResolver } from './servers/server/server-resolver.service';
 import { ServerComponents } from './servers/server/server.component';
 import { ServersComponent } from './servers/servers.component';
 import { UserComponent } from './users/user/user.component';
@@ -37,7 +38,12 @@ const appRoutes: Routes = [
         component: EditServerComponent,
         canDeactivate: [CanDeactivateGuard],
       },
-      { path: ':id', component: ServerComponents },
+      //server stores the output from ServerResolver before the component loads
+      {
+        path: ':id',
+        component: ServerComponents,
+        resolve: { server: ServerResolver },
+      },
     ],
   },
   //{ path: 'not-found', component: PageNotFoundComponent },
