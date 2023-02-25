@@ -57,7 +57,8 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes)],
+  //imports: [RouterModule.forRoot(appRoutes)],
+  imports: [RouterModule.forRoot(appRoutes, { useHash: true })],
   //We want to import this module in the app module hence exporting.
   //Also we wantRouting module to be available when imported this module
   exports: [RouterModule],
