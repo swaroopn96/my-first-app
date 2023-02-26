@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 //import { AccountsService } from './accounts.service';
 //import { CounterService } from './counter.service';
-import { UserService } from './users.service';
+//import { UserService } from './users.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +16,7 @@ import { UserService } from './users.service';
   //     `,
   //   ],
   //providers: [AccountsService],
-  providers: [UserService],
+  //providers: [UserService],
 })
 export class AppComponent {
   // title = 'my-app';
