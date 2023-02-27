@@ -52,12 +52,21 @@ export class HomeComponent implements OnInit, OnDestroy {
       let count = 0;
       setInterval(() => {
         observer.next(count);
+        if (count > 3) {
+          observer.error(new Error('Count is greater than 3!'));
+        }
         count++;
       }, 1000);
     });
-    this.firstObsSubscription = customIntervalObservable.subscribe((data) => {
+    this.firstObsSubscription = customIntervalObservable.subscribe({
+      next: (data) => {
+        console.log(data);
+      },
       //It says that when the next method in observer is called log the data
-      console.log(data);
+      error: (error) => {
+        console.log(error);
+        alert(error.message);
+      },
     });
   }
 
