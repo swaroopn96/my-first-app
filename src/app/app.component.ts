@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { UserServices } from './user.service';
 //import { AccountsService } from './accounts.service';
 //import { CounterService } from './counter.service';
 //import { UserService } from './users.service';
@@ -18,7 +20,7 @@ import { Component, OnInit } from '@angular/core';
   //providers: [AccountsService],
   //providers: [UserService],
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
   // title = 'my-app';
   // name = 'Swaroop';
   // servers = [];
@@ -114,4 +116,21 @@ export class AppComponent {
   // onSetToActive(id: number) {
   //   this.userService.setToActive(id);
   // }
+
+  constructor(private userServices: UserServices) {}
+
+  userActivated = false;
+  private activatedSub: Subscription;
+
+  ngOnInit() {
+    this.activatedSub = this.userServices.activatedEmitter.subscribe(
+      (didActivate) => {
+        this.userActivated = didActivate;
+      }
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.activatedSub.unsubscribe();
+  }
 }
