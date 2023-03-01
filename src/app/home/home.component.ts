@@ -31,7 +31,7 @@
 // }
 
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { interval, Observable, Subscription } from 'rxjs';
+import { filter, interval, map, Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       let count = 0;
       setInterval(() => {
         observer.next(count);
-        if (count == 2) {
+        if (count === 5) {
           observer.complete();
         }
         if (count > 3) {
@@ -61,19 +61,29 @@ export class HomeComponent implements OnInit, OnDestroy {
         count++;
       }, 1000);
     });
-    this.firstObsSubscription = customIntervalObservable.subscribe({
-      next: (data) => {
-        console.log(data);
-      },
-      //It says that when the next method in observer is called log the data
-      error: (error) => {
-        console.log(error);
-        alert(error.message);
-      },
-      complete: () => {
-        console.log('Completed');
-      },
-    });
+    // list of operators can be found here https://www.learnrxjs.io/learn-rxjs/operators
+    this.firstObsSubscription = customIntervalObservable
+      .pipe(
+        filter((data) => {
+          return data > 2;
+        }),
+        map((data: number) => {
+          return 'Round: ' + (data + 1);
+        })
+      )
+      .subscribe({
+        next: (data) => {
+          console.log(data);
+        },
+        //It says that when the next method in observer is called log the data
+        error: (error) => {
+          console.log(error);
+          alert(error.message);
+        },
+        complete: () => {
+          console.log('Completed');
+        },
+      });
   }
 
   ngOnDestroy(): void {
