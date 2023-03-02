@@ -295,7 +295,7 @@ Also add a counterService which counts the number of active->inactive and inacti
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <!-- Assigning refVariable to ngForm says angular to provide us with the javascript object created  -->
       <form (ngSubmit)="onSubmit()" #formRef="ngForm">
-        <div id="user-data">
+        <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
           <div class="form-group">
             <label for="username">Username</label>
             <input
@@ -326,6 +326,7 @@ Also add a counterService which counts the number of active->inactive and inacti
             >
           </div>
         </div>
+        <p *ngIf="!userData.valid && userData.touched">User Data is invalid</p>
         <div class="form-group">
           <label for="secret">Secret Questions</label>
           <!-- used one way binding ngModel to show default value -->
