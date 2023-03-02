@@ -293,7 +293,8 @@ Also add a counterService which counts the number of active->inactive and inacti
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <form>
+      <!-- Assigning refVariable to ngForm says angular to provide us with the javascript object created  -->
+      <form (ngSubmit)="onSubmit(formRef)" #formRef="ngForm">
         <div id="user-data">
           <div class="form-group">
             <label for="username">Username</label>

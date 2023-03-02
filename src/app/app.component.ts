@@ -1,4 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { UserServices } from './user.service';
 //import { AccountsService } from './accounts.service';
@@ -134,5 +135,14 @@ export class AppComponent {
 
   suggestUserName() {
     const suggestedName = 'Superuser';
+  }
+
+  // onSubmit(form: HTMLFormElement) {
+  //   console.log('Submitted');
+  //   console.log(form);
+  // }
+  onSubmit(form: NgForm) {
+    console.log('Submitted');
+    console.log(form);
   }
 }
