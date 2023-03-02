@@ -1,4 +1,10 @@
-import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { UserServices } from './user.service';
@@ -141,8 +147,13 @@ export class AppComponent {
   //   console.log('Submitted');
   //   console.log(form);
   // }
-  onSubmit(form: NgForm) {
+  // onSubmit(form: NgForm) {
+  //   console.log('Submitted');
+  //   console.log(form);
+  // }
+  @ViewChild('formRef') ngForm;
+  onSubmit() {
     console.log('Submitted');
-    console.log(form);
+    console.log(this.ngForm);
   }
 }
