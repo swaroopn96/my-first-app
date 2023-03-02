@@ -20,7 +20,8 @@ import { UserServices } from './user.service';
   //providers: [AccountsService],
   //providers: [UserService],
 })
-export class AppComponent implements OnDestroy {
+//export class AppComponent implements OnDestroy {
+export class AppComponent {
   // title = 'my-app';
   // name = 'Swaroop';
   // servers = [];
@@ -116,21 +117,22 @@ export class AppComponent implements OnDestroy {
   // onSetToActive(id: number) {
   //   this.userService.setToActive(id);
   // }
+  // constructor(private userServices: UserServices) {}
+  // userActivated = false;
+  // private activatedSub: Subscription;
+  // ngOnInit() {
+  //   this.activatedSub = this.userServices.activatedEmitter.subscribe(
+  //     (didActivate) => {
+  //       this.userActivated = didActivate;
+  //     }
+  //   );
+  // }
+  // ngOnDestroy(): void {
+  //   this.activatedSub.unsubscribe();
+  // }
+  //--------------------------------------------------------------------
 
-  constructor(private userServices: UserServices) {}
-
-  userActivated = false;
-  private activatedSub: Subscription;
-
-  ngOnInit() {
-    this.activatedSub = this.userServices.activatedEmitter.subscribe(
-      (didActivate) => {
-        this.userActivated = didActivate;
-      }
-    );
-  }
-
-  ngOnDestroy(): void {
-    this.activatedSub.unsubscribe();
+  suggestUserName() {
+    const suggestedName = 'Superuser';
   }
 }
