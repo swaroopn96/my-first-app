@@ -329,7 +329,13 @@ Also add a counterService which counts the number of active->inactive and inacti
             <option value="teacher">Your first teacher?</option>
           </select>
         </div>
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="!formRef.valid"
+        >
+          Submit
+        </button>
       </form>
     </div>
   </div>
