@@ -152,6 +152,7 @@ export class AppComponent {
   //   console.log(form);
   // }
   @ViewChild('formRef') ngForm;
+  defaultQuestion = 'pet';
   onSubmit() {
     console.log('Submitted');
     console.log(this.ngForm);
