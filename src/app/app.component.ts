@@ -154,6 +154,7 @@ export class AppComponent {
   @ViewChild('formRef') ngForm;
   defaultQuestion = 'pet';
   answer = '';
+  genders = ['male', 'female'];
   onSubmit() {
     console.log('Submitted');
     console.log(this.ngForm);
