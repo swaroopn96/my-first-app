@@ -307,7 +307,11 @@ Also add a counterService which counts the number of active->inactive and inacti
               required
             />
           </div>
-          <button class="btn btn-default" type="button">
+          <button
+            class="btn btn-default"
+            type="button"
+            (click)="suggestUserName()"
+          >
             Suggest an Username
           </button>
           <div class="form-group">

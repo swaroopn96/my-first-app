@@ -139,10 +139,6 @@ export class AppComponent {
   // }
   //--------------------------------------------------------------------
 
-  suggestUserName() {
-    const suggestedName = 'Superuser';
-  }
-
   // onSubmit(form: HTMLFormElement) {
   //   console.log('Submitted');
   //   console.log(form);
@@ -151,12 +147,35 @@ export class AppComponent {
   //   console.log('Submitted');
   //   console.log(form);
   // }
-  @ViewChild('formRef') ngForm;
+  @ViewChild('formRef') signupForm: NgForm;
   defaultQuestion = 'pet';
   answer = '';
   genders = ['male', 'female'];
+
+  suggestUserName() {
+    const suggestedName = 'Superuser';
+    //This setvalue method resets all value since all form values need to be provided compulsory
+    // this.signupForm.setValue({
+    //   userData: {
+    //     username: suggestedName,
+    //     email: '',
+    //   },
+    //   secret: 'pet',
+    //   questionAnswer: '',
+    //   gender: 'male',
+    // });
+
+    //pathvalue is used to set part of form
+    //Setvalue to set entire form
+    this.signupForm.form.patchValue({
+      userData: {
+        username: suggestedName,
+      },
+    });
+  }
+
   onSubmit() {
     console.log('Submitted');
-    console.log(this.ngForm);
+    console.log(this.signupForm);
   }
 }
