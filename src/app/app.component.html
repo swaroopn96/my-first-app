@@ -373,6 +373,14 @@ Also add a counterService which counts the number of active->inactive and inacti
         >
           Submit
         </button>
+        <button
+          class="btn btn-primary"
+          (click)="onReset()"
+          type="button"
+          [disabled]="!submitted"
+        >
+          Reset
+        </button>
       </form>
     </div>
   </div>

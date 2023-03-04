@@ -192,4 +192,9 @@ export class AppComponent {
     this.user.answer = this.signupForm.value.questionAnswer;
     this.user.gender = this.signupForm.value.gender;
   }
+
+  onReset() {
+    this.signupForm.reset();
+    this.submitted = false;
+  }
 }
