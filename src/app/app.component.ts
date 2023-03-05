@@ -5,7 +5,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { FormGroup, NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { UserServices } from './user.service';
 //import { AccountsService } from './accounts.service';
@@ -28,7 +28,7 @@ import { UserServices } from './user.service';
   //providers: [UserService],
 })
 //export class AppComponent implements OnDestroy {
-export class AppComponent {
+export class AppComponent implements OnInit {
   // title = 'my-app';
   // name = 'Swaroop';
   // servers = [];
@@ -202,4 +202,12 @@ export class AppComponent {
 
   genders = ['male', 'female'];
   signupForm: FormGroup;
+
+  ngOnInit() {
+    this.signupForm = new FormGroup({
+      username: new FormControl(null),
+      email: new FormControl(null),
+      gender: new FormControl('male'),
+    });
+  }
 }
