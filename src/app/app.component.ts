@@ -5,7 +5,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormGroup, NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { UserServices } from './user.service';
 //import { AccountsService } from './accounts.service';
@@ -147,54 +147,59 @@ export class AppComponent {
   //   console.log('Submitted');
   //   console.log(form);
   // }
-  @ViewChild('formRef') signupForm: NgForm;
-  defaultQuestion = 'pet';
-  answer = '';
+  // @ViewChild('formRef') signupForm: NgForm;
+  // defaultQuestion = 'pet';
+  // answer = '';
+  // genders = ['male', 'female'];
+  // user = {
+  //   username: '',
+  //   email: '',
+  //   secretquestion: '',
+  //   answer: '',
+  //   gender: '',
+  // };
+  // submitted = false;
+
+  // suggestUserName() {
+  //   const suggestedName = 'Superuser';
+  //This setvalue method resets all value since all form values need to be provided compulsory
+  // this.signupForm.setValue({
+  //   userData: {
+  //     username: suggestedName,
+  //     email: '',
+  //   },
+  //   secret: 'pet',
+  //   questionAnswer: '',
+  //   gender: 'male',
+  // });
+
+  //pathvalue is used to set part of form
+  //Setvalue to set entire form
+  //   this.signupForm.form.patchValue({
+  //     userData: {
+  //       username: suggestedName,
+  //     },
+  //   });
+  // }
+
+  // onSubmit() {
+  //   // console.log('Submitted');
+  //   // console.log(this.signupForm);
+  //   this.submitted = true;
+  //   this.user.username = this.signupForm.value.userData.username;
+  //   this.user.email = this.signupForm.value.userData.email;
+  //   this.user.secretquestion = this.signupForm.value.secret;
+  //   this.user.answer = this.signupForm.value.questionAnswer;
+  //   this.user.gender = this.signupForm.value.gender;
+  // }
+
+  // onReset() {
+  //   this.signupForm.reset();
+  //   this.submitted = false;
+  // }
+
+  //----------------------Reactive Approach--------------------------------------------//
+
   genders = ['male', 'female'];
-  user = {
-    username: '',
-    email: '',
-    secretquestion: '',
-    answer: '',
-    gender: '',
-  };
-  submitted = false;
-
-  suggestUserName() {
-    const suggestedName = 'Superuser';
-    //This setvalue method resets all value since all form values need to be provided compulsory
-    // this.signupForm.setValue({
-    //   userData: {
-    //     username: suggestedName,
-    //     email: '',
-    //   },
-    //   secret: 'pet',
-    //   questionAnswer: '',
-    //   gender: 'male',
-    // });
-
-    //pathvalue is used to set part of form
-    //Setvalue to set entire form
-    this.signupForm.form.patchValue({
-      userData: {
-        username: suggestedName,
-      },
-    });
-  }
-
-  onSubmit() {
-    // console.log('Submitted');
-    // console.log(this.signupForm);
-    this.submitted = true;
-    this.user.username = this.signupForm.value.userData.username;
-    this.user.email = this.signupForm.value.userData.email;
-    this.user.secretquestion = this.signupForm.value.secret;
-    this.user.answer = this.signupForm.value.questionAnswer;
-    this.user.gender = this.signupForm.value.gender;
-  }
-
-  onReset() {
-    this.signupForm.reset();
-    this.submitted = false;
-  }
+  signupForm: FormGroup;
 }
