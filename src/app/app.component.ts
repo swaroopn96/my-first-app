@@ -208,11 +208,16 @@ export class AppComponent implements OnInit {
 
   genders = ['male', 'female'];
   signupForm: FormGroup;
+  forbiddenUsernames = ['Chris', 'Anna'];
 
   ngOnInit() {
     this.signupForm = new FormGroup({
       userData: new FormGroup({
-        username: new FormControl(null, Validators.required),
+        // here we are using bind(this) because this function will be called from angular and it does not know to call from this file
+        username: new FormControl(null, [
+          Validators.required,
+          this.forbiddenNames.bind(this),
+        ]),
         email: new FormControl(null, [Validators.required, Validators.email]),
       }),
       gender: new FormControl('male'),
@@ -231,5 +236,13 @@ export class AppComponent implements OnInit {
 
   getControls() {
     return (<FormArray>this.signupForm.get('hobbies')).controls;
+  }
+
+  //here {[s:string]:boolean} is the JS object that should be returned. i.e key of type string and value of boolean
+  forbiddenNames(control: FormControl): { [s: string]: boolean } {
+    if (this.forbiddenUsernames.indexOf(control.value) != -1) {
+      return { nameIsForbidden: true };
+    }
+    return null;
   }
 }
