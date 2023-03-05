@@ -5,7 +5,13 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import {
+  FormArray,
+  FormControl,
+  FormGroup,
+  NgForm,
+  Validators,
+} from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { UserServices } from './user.service';
 //import { AccountsService } from './accounts.service';
@@ -210,10 +216,20 @@ export class AppComponent implements OnInit {
         email: new FormControl(null, [Validators.required, Validators.email]),
       }),
       gender: new FormControl('male'),
+      hobbies: new FormArray([]),
     });
   }
 
   onSubmit() {
     console.log(this.signupForm);
+  }
+
+  onAddHobby() {
+    const control = new FormControl(null, Validators.required);
+    (<FormArray>this.signupForm.get('hobbies')).push(control);
+  }
+
+  getControls() {
+    return (<FormArray>this.signupForm.get('hobbies')).controls;
   }
 }
