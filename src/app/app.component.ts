@@ -232,10 +232,29 @@ export class AppComponent implements OnInit {
     //this.signupForm.valueChanges.subscribe((value) => console.log(value));
     //This triggers on status change like valid invalid pending etc of form
     this.signupForm.statusChanges.subscribe((status) => console.log(status));
+
+    //Sets value to entire form
+    this.signupForm.setValue({
+      userData: {
+        username: 'Abhi',
+        email: 'Abhi@test.com',
+      },
+      gender: 'male',
+      hobbies: [],
+    });
+    //Sets value to part of form
+    this.signupForm.patchValue({
+      userData: {
+        username: 'Anna',
+      },
+    });
   }
 
   onSubmit() {
     console.log(this.signupForm);
+
+    //this will reset on click of submit
+    //this.signupForm.reset();
   }
 
   onAddHobby() {
