@@ -227,6 +227,11 @@ export class AppComponent implements OnInit {
       gender: new FormControl('male'),
       hobbies: new FormArray([]),
     });
+
+    //this triggers on every value change
+    //this.signupForm.valueChanges.subscribe((value) => console.log(value));
+    //This triggers on status change like valid invalid pending etc of form
+    this.signupForm.statusChanges.subscribe((status) => console.log(status));
   }
 
   onSubmit() {
