@@ -13,6 +13,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Observable, Subscription } from 'rxjs';
+import { CustomValidators } from './custom-validators';
 import { UserServices } from './user.service';
 //import { AccountsService } from './accounts.service';
 //import { CounterService } from './counter.service';
@@ -208,7 +209,7 @@ export class AppComponent implements OnInit {
 
   genders = ['male', 'female'];
   signupForm: FormGroup;
-  forbiddenUsernames = ['Chris', 'Anna'];
+  //forbiddenUsernames = ['Chris', 'Anna'];
 
   ngOnInit() {
     this.signupForm = new FormGroup({
@@ -216,12 +217,12 @@ export class AppComponent implements OnInit {
         // here we are using bind(this) because this function will be called from angular and it does not know to call from this file
         username: new FormControl(null, [
           Validators.required,
-          this.forbiddenNames.bind(this),
+          CustomValidators.forbiddenNames,
         ]),
         email: new FormControl(
           null,
           [Validators.required, Validators.email],
-          this.forbiddenEmail.bind(this)
+          CustomValidators.forbiddenEmail
         ),
       }),
       gender: new FormControl('male'),
@@ -267,22 +268,22 @@ export class AppComponent implements OnInit {
   }
 
   //here {[s:string]:boolean} is the JS object that should be returned. i.e key of type string and value of boolean
-  forbiddenNames(control: FormControl): { [s: string]: boolean } {
-    if (this.forbiddenUsernames.indexOf(control.value) != -1) {
-      return { nameIsForbidden: true };
-    }
-    return null;
-  }
+  // forbiddenNames(control: FormControl): { [s: string]: boolean } {
+  //   if (this.forbiddenUsernames.indexOf(control.value) != -1) {
+  //     return { nameIsForbidden: true };
+  //   }
+  //   return null;
+  // }
 
-  forbiddenEmail(control: FormControl): Promise<any> | Observable<any> {
-    return new Promise<any>((resolve, reject) => {
-      setTimeout(() => {
-        if (control.value == 'test@test.com') {
-          resolve({ emailIsForbidden: true });
-        } else {
-          resolve(null);
-        }
-      }, 1500);
-    });
-  }
+  // forbiddenEmail(control: FormControl): Promise<any> | Observable<any> {
+  //   return new Promise<any>((resolve, reject) => {
+  //     setTimeout(() => {
+  //       if (control.value == 'test@test.com') {
+  //         resolve({ emailIsForbidden: true });
+  //       } else {
+  //         resolve(null);
+  //       }
+  //     }, 1500);
+  //   });
+  // }
 }
