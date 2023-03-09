@@ -12,7 +12,7 @@ import {
   NgForm,
   Validators,
 } from '@angular/forms';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { UserServices } from './user.service';
 //import { AccountsService } from './accounts.service';
 //import { CounterService } from './counter.service';
@@ -218,7 +218,11 @@ export class AppComponent implements OnInit {
           Validators.required,
           this.forbiddenNames.bind(this),
         ]),
-        email: new FormControl(null, [Validators.required, Validators.email]),
+        email: new FormControl(
+          null,
+          [Validators.required, Validators.email],
+          this.forbiddenEmail.bind(this)
+        ),
       }),
       gender: new FormControl('male'),
       hobbies: new FormArray([]),
@@ -244,5 +248,17 @@ export class AppComponent implements OnInit {
       return { nameIsForbidden: true };
     }
     return null;
+  }
+
+  forbiddenEmail(control: FormControl): Promise<any> | Observable<any> {
+    return new Promise<any>((resolve, reject) => {
+      setTimeout(() => {
+        if (control.value == 'test@test.com') {
+          resolve({ emailIsForbidden: true });
+        } else {
+          resolve(null);
+        }
+      }, 1500);
+    });
   }
 }
